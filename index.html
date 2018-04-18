@@ -1,7 +1,14 @@
 ---
 layout: default
-title: th3r3g3nt blog
+title: th3r3g3nt Security Blog<br>Root for everyone<
 ---
-<div class="blurb">
-	<h1>th3r3g3nt Security Blog<br>Root for everyone</h1>
-	</div><!-- /.blurb -->
+	<ul class="posts">
+
+	  {% for post in site.posts %}
+		<li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><span>({{ post.date | date_to_string }})</span></li>
+		<ul>
+		{{ post.excerpt }}
+		</ul>
+		<hr>
+	  {% endfor %}
+	</ul>
