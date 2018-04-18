@@ -10,7 +10,7 @@ title: th3r3g3nt Security Blog<br>Root for everyone
 
 	  {% for post in site.posts %}
 		<hr>
-		<li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><span>  Date:{{ post.date | date_to_string }}</span></li>
+		<li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><span>  Date: {{ post.date | date_to_string }}</span></li>
 		<ul>
 		{{ post.excerpt }}
 		</ul>
