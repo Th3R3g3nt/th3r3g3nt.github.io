@@ -9,10 +9,10 @@ title: th3r3g3nt Security Blog<br>Root for everyone
 	<ul class="posts">
 
 	  {% for post in site.posts %}
-		<li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><span>({{ post.date | date_to_string }})</span></li>
+		<hr>
+		<li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><span>  Date:{{ post.date | date_to_string }}</span></li>
 		<ul>
 		{{ post.excerpt }}
 		</ul>
-		<hr>
 	  {% endfor %}
 	</ul>
