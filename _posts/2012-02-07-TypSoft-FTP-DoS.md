@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TYPSoft FTP"
+title: "TYPSoft FTP Multiple Command Denial-of-Service"
 date: 2012-02-07
 excerpt_separator: <!--more-->
 ---
