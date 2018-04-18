@@ -16,7 +16,7 @@ TL;DR
 * OSVDB-ID: 80913
 * Win 7 only
 * Update: Recent Win 7 patches in around 2018 fixed the issues and DoS doesn't seems to work. Oops...
-<!--more>
+<!--more-->
 
 **CWD Variant**
 {% highlight perl %}
