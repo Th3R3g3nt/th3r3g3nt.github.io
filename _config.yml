@@ -1,2 +1,4 @@
 name: th3r3g3nt, Root for Everyone!
 markdown: kramdown
+encoding: utf-8
+safe: TRUE

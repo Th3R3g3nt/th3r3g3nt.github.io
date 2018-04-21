@@ -1,9 +1,9 @@
 ---
 layout: default
-title: th3r3g3nt Security Blog<br>Root for everyone
+title: th3r3g3nt Cybersecurity Blog
 ---
 <div class="blurb">
-	<h1>th3r3g3nt Security Blog</h1>Spread the joy - Root for everyone!
+	<h1>th3r3g3nt Cybersecurity Blog</h1>Spread the joy - Root for everyone!
 </div>
 
 
@@ -11,9 +11,10 @@ title: th3r3g3nt Security Blog<br>Root for everyone
 
 	  {% for post in site.posts %}
 		<hr>
-		<li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><span>  Date: {{ post.date | date_to_string }}</span></li>
+		<li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><span><br>&nbsp; Date: {{ post.date | date_to_string }}</span></li>
 		<ul>
 		{{ post.excerpt }}
 		</ul>
+		<br>
 	  {% endfor %}
 	</ul>
