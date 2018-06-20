@@ -27,9 +27,9 @@ Get it at [https://github.com/Th3R3g3nt/DDT][ddt]
   
 Example screenshot is below as:  
 
-![Python Client Screenshot]({{ "/files/DDT-Client.jpg" | absolute_url }})  
+![Python Client Screenshot]({{ "/files/DDT-Client.png" | absolute_url }})  
 
-![Python Server Screenshot]({{ "/files/DDT-Client.jpg" | absolute_url }})  
+![Python Server Screenshot]({{ "/files/DDT-Server.png" | absolute_url }})  
 
 
 [ddt]:https://github.com/Th3R3g3nt/DDT
